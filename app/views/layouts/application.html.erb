@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Ecommerce</title>
+    <title>EPI-CART</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,11 @@
   </head>
 
   <body>
-    <%= yield %>
+    <center class="destroyed">
+      <%= flash[:alert] %>
+      <%= flash[:notice] %>
+    </center>
+    <%= render 'layouts/navbar' %>
+      <%= yield %>
   </body>
 </html>

@@ -13,3 +13,13 @@
  *= require_tree .
  *= require_self
  */
+
+ /*utility classes*/
+
+ .textalign {text-align: center}
+
+.bold {font-weight: bold}
+
+nav a {
+  text-decoration: none;
+}
