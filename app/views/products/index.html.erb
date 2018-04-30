@@ -1,0 +1,15 @@
+<h1 class="textalign">Products</h1>
+
+<!-- Product.create!(name: Faker::Vehicle.manufacture,
+                      price: Faker::Number.decimal(2))
+                      @product_id = Product.last.id -->
+
+
+<% @products.each do |product| %>
+ <p><%= product.name %> | <%= number_to_currency product.price %>
+ <%= form_for @order_item do |f| %>
+   <%= f.hidden_field :product_id, value: product.id %>
+   <%= f.number_field :quantity %>
+   <%= f.submit "Add to cart" %>
+ <% end %></p>
+<% end %>
