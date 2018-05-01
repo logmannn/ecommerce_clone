@@ -13,7 +13,7 @@
         <div class="sign_up_or_in">
           <% if current_user %>
             <%= link_to "Sign out", '/users/sign_out', method: 'delete' %> |
-            <%=link_to "Hi, #{current_user.first_name}", '/' %> |
+            <%=link_to "Hi, #{current_user.email}", '/' %> |
             <%=link_to "Edit user", '/users/edit' %>
           <% else %>
             <%= link_to "Sign in", '/users/sign_in' %>
