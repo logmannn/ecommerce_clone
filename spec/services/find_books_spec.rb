@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Book do
+describe Book, :vcr => true do
   it "returns a size of bestseller list" do
     response = Book.get_books
     expect(response.size).to(eq(20))
