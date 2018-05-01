@@ -9,7 +9,7 @@ class Book
     # response["main"]["humidity"]
 
     response = RestClient.get('https://api.nytimes.com/svc/books/v3/lists/best-sellers/history.json', headers= {api_key: ENV['NYT_API_KEY']})
-    # binding.pry
+
     JSON.parse(response)["results"]
 
   end
