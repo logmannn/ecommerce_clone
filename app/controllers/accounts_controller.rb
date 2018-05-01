@@ -16,6 +16,12 @@ class AccountsController < ApplicationController
     end
   end
 
+  def show
+    @order_items = current_order.order_items
+  end
+
+
+
   private
 
   def account_params

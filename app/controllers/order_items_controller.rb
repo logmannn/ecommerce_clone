@@ -5,6 +5,10 @@ class OrderItemsController < ApplicationController
     render :index
   end
 
+  def show
+    @order_items = current_order.order_items
+  end  
+
   @order_items = OrderItem.all
   @order_item = OrderItem.new
 

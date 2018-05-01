@@ -8,33 +8,33 @@
         <span><a href="">Placeholder2</a></span>
         <span><a href="">Placeholder3</a></span>
         <span class="nav-sprite"></span>
-        <a href="/cart">
-          <div class="countingItems">
-            <%itemCount = 0%>
-            <% @order_items.length do |item| %>
-              <%if (@order_items.id != 1)%>
-                <%itemCount = itemCount + 1%>
-              <%end%>
-            <%end%>
-              <%if (request.fullpath=="/")%><%itemCount = itemCount-1%><%end%>
-              <%=@order_items.length%>
-
-          </div>
-        </a>
         <!-- </ul> -->
+        <% if current_user %>
+          <%= link_to "Sign out", '/users/sign_out', method: 'delete' %> |
+          <%=link_to "Hi, #{current_user.email}", '/' %> |
+          <%=link_to "Edit user", '/users/edit' %>
+          <a href="/cart">
+
+            <div class="countingItems">
+              <%itemCount = 0%>
+              <!--where userid = to those items-->
+              <% @order_items.length do |item| %>
+                <%if (@order_items.id != 1)%>
+                  <%itemCount = itemCount + 1%>
+                <%end%>
+              <%end%>
+                <%if (request.fullpath=="/")%><%itemCount = itemCount-1%><%end%>
+                <%=@order_items.length%>
+
+            </div>
+
+          </a>
+        <% else %>
+          <%= link_to "Sign in", '/users/sign_in' %>
+          <%= link_to "Sign up", '/users/sign_up' %>
+        <% end %>
       </div>
-      <div class="col-md-6">
-        <div class="sign_up_or_in">
-          <% if current_user %>
-            <%= link_to "Sign out", '/users/sign_out', method: 'delete' %> |
-            <%=link_to "Hi, #{current_user.email}", '/' %> |
-            <%=link_to "Edit user", '/users/edit' %>
-          <% else %>
-            <%= link_to "Sign in", '/users/sign_in' %>
-            <%= link_to "Sign up", '/users/sign_up' %>
-          <% end %>
-        </div>
-      </div>
+
     </div>
   </nav>
 </header>
